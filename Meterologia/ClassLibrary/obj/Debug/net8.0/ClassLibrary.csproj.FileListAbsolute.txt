@@ -1,0 +1,11 @@
+G:\Dani_(idéglenes)\Suli\BME\3. Félév\SofTech\Hazi 2\Meterologia\ClassLibrary\obj\Debug\net8.0\ClassLibrary.GeneratedMSBuildEditorConfig.editorconfig
+G:\Dani_(idéglenes)\Suli\BME\3. Félév\SofTech\Hazi 2\Meterologia\ClassLibrary\obj\Debug\net8.0\ClassLibrary.AssemblyInfoInputs.cache
+G:\Dani_(idéglenes)\Suli\BME\3. Félév\SofTech\Hazi 2\Meterologia\ClassLibrary\obj\Debug\net8.0\ClassLibrary.AssemblyInfo.cs
+G:\Dani_(idéglenes)\Suli\BME\3. Félév\SofTech\Hazi 2\Meterologia\ClassLibrary\obj\Debug\net8.0\ClassLibrary.csproj.CoreCompileInputs.cache
+G:\Dani_(idéglenes)\Suli\BME\3. Félév\SofTech\Hazi 2\Meterologia\ClassLibrary\bin\Debug\net8.0\ClassLibrary.deps.json
+G:\Dani_(idéglenes)\Suli\BME\3. Félév\SofTech\Hazi 2\Meterologia\ClassLibrary\bin\Debug\net8.0\ClassLibrary.dll
+G:\Dani_(idéglenes)\Suli\BME\3. Félév\SofTech\Hazi 2\Meterologia\ClassLibrary\bin\Debug\net8.0\ClassLibrary.pdb
+G:\Dani_(idéglenes)\Suli\BME\3. Félév\SofTech\Hazi 2\Meterologia\ClassLibrary\obj\Debug\net8.0\ClassLibrary.dll
+G:\Dani_(idéglenes)\Suli\BME\3. Félév\SofTech\Hazi 2\Meterologia\ClassLibrary\obj\Debug\net8.0\refint\ClassLibrary.dll
+G:\Dani_(idéglenes)\Suli\BME\3. Félév\SofTech\Hazi 2\Meterologia\ClassLibrary\obj\Debug\net8.0\ClassLibrary.pdb
+G:\Dani_(idéglenes)\Suli\BME\3. Félév\SofTech\Hazi 2\Meterologia\ClassLibrary\obj\Debug\net8.0\ref\ClassLibrary.dll

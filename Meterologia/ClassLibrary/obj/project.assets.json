@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\Dani_(idéglenes)\\Suli\\BME\\3. Félév\\SofTech\\Hazi 2\\Meterologia\\Systems\\Program.csproj",
-      "projectName": "Program",
-      "projectPath": "G:\\Dani_(idéglenes)\\Suli\\BME\\3. Félév\\SofTech\\Hazi 2\\Meterologia\\Systems\\Program.csproj",
+      "projectUniqueName": "G:\\Dani_(idéglenes)\\Suli\\BME\\3. Félév\\SofTech\\Hazi 2\\Meterologia\\ClassLibrary\\ClassLibrary.csproj",
+      "projectName": "ClassLibrary",
+      "projectPath": "G:\\Dani_(idéglenes)\\Suli\\BME\\3. Félév\\SofTech\\Hazi 2\\Meterologia\\ClassLibrary\\ClassLibrary.csproj",
       "packagesPath": "C:\\Users\\Gep\\.nuget\\packages\\",
-      "outputPath": "G:\\Dani_(idéglenes)\\Suli\\BME\\3. Félév\\SofTech\\Hazi 2\\Meterologia\\Systems\\obj\\",
+      "outputPath": "G:\\Dani_(idéglenes)\\Suli\\BME\\3. Félév\\SofTech\\Hazi 2\\Meterologia\\ClassLibrary\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,4 +1,4 @@
-﻿namespace Systems
+﻿namespace Program
 {
     internal class Program
     {
