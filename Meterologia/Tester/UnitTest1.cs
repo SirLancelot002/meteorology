@@ -1,4 +1,5 @@
 ﻿using ClassLibrary;
+using ClassLibrary.DataNodes;
 
 namespace Tester
 {
@@ -207,5 +208,33 @@ namespace Tester
             Assert.InRange(w.Value, 9.999, 10.001);
         }
         #endregion
+
+        [Fact(DisplayName = "14. Unit checking")]
+        public void Test14()
+        {
+            Assert.True(DataNode.IsUnitSupportedForType(typeof(TemperatureNode), "°C"), "For some reason Temperature didn't recognize Celsius.");
+            Assert.True(DataNode.IsUnitSupportedForType(typeof(Humidity), "%"), "For some reason Humidity didn't recognize %.");
+            Assert.True(DataNode.IsUnitSupportedForType(typeof(Pressure), "bar"), "For some reason Pressure didn't recognize bar.");
+            Assert.True(DataNode.IsUnitSupportedForType(typeof(WindSpeed), "mph"), "For some reason Windspeed didn't recognize mph.");
+
+            Assert.False(DataNode.IsUnitSupportedForType(typeof(TemperatureNode), "Diddy"), "For some reason Temperature recognize Diddy as a valid unit.");
+            Assert.False(DataNode.IsUnitSupportedForType(typeof(Humidity), "Epstein"), "For some reason Humidity recognize Epstein as a valid unit.");
+            Assert.False(DataNode.IsUnitSupportedForType(typeof(Pressure), "EDP"), "For some reason Pressure recognize EDP as a valid unit.");
+            Assert.False(DataNode.IsUnitSupportedForType(typeof(WindSpeed), "Mizkif"), "For some reason WindSpeed recognize Mizkif as a valid unit.");
+
+            var subTypes = typeof(DataNode).Assembly.GetTypes()
+                .Where(t => t.IsClass && !t.IsAbstract && t.IsSubclassOf(typeof(DataNode))).ToList();
+
+            string found = "";
+            foreach (var subType in subTypes)
+            {
+                if (DataNode.IsUnitSupportedForType(subType, "knot"))
+                {
+                    found = subType.FullName;
+                }
+            }
+
+            Assert.True(found == "ClassLibrary.DataNodes.WindSpeed");
+        }
     }
 }

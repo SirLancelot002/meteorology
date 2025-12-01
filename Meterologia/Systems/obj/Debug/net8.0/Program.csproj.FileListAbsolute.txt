@@ -12,3 +12,7 @@ G:\Dani_(idéglenes)\Suli\BME\3. Félév\SofTech\Hazi 2\Meterologia\Systems\obj\
 G:\Dani_(idéglenes)\Suli\BME\3. Félév\SofTech\Hazi 2\Meterologia\Systems\obj\Debug\net8.0\Program.pdb
 G:\Dani_(idéglenes)\Suli\BME\3. Félév\SofTech\Hazi 2\Meterologia\Systems\obj\Debug\net8.0\Program.genruntimeconfig.cache
 G:\Dani_(idéglenes)\Suli\BME\3. Félév\SofTech\Hazi 2\Meterologia\Systems\obj\Debug\net8.0\ref\Program.dll
+G:\Dani_(idéglenes)\Suli\BME\3. Félév\SofTech\Hazi 2\Meterologia\Systems\bin\Debug\net8.0\ClassLibrary.dll
+G:\Dani_(idéglenes)\Suli\BME\3. Félév\SofTech\Hazi 2\Meterologia\Systems\bin\Debug\net8.0\ClassLibrary.pdb
+G:\Dani_(idéglenes)\Suli\BME\3. Félév\SofTech\Hazi 2\Meterologia\Systems\obj\Debug\net8.0\Program.csproj.AssemblyReference.cache
+G:\Dani_(idéglenes)\Suli\BME\3. Félév\SofTech\Hazi 2\Meterologia\Systems\obj\Debug\net8.0\Program.csproj.Up2Date

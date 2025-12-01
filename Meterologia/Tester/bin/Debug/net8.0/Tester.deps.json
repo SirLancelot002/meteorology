@@ -352,6 +352,9 @@
         }
       },
       "Program/1.0.0": {
+        "dependencies": {
+          "ClassLibrary": "1.0.0"
+        },
         "runtime": {
           "Program.dll": {
             "assemblyVersion": "1.0.0.0",

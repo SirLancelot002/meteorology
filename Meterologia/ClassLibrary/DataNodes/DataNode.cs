@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClassLibrary
+namespace ClassLibrary.DataNodes
 {
     public abstract class DataNode
     {
@@ -47,6 +48,26 @@ namespace ClassLibrary
             if (!UnitConverters.TryGetValue(key, out var conv)) throw new ArgumentOutOfRangeException(nameof(unit), "Unknown unit for this node type.");
 
             return conv.FromBase(Value);
+        }
+
+        public static bool IsUnitSupportedForType(Type nodeType, string unit)
+        {//Sadly I could not turn "IsUnitSupported" into a static function, so I had to make this...
+            if (!typeof(DataNode).IsAssignableFrom(nodeType))
+                return false;
+
+            var field = nodeType.GetField("_converters",
+                BindingFlags.NonPublic | BindingFlags.Static);
+
+            if (field == null)
+                return false;
+
+            var converters =
+                field.GetValue(null) as IReadOnlyDictionary<string, (Func<double, double>, Func<double, double>)>;
+
+            if (converters == null)
+                return false;
+
+            return converters.ContainsKey(NormalizeUnit(unit));
         }
     }
 }
