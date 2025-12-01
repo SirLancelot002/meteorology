@@ -1,5 +1,6 @@
 ﻿using ClassLibrary;
 using ClassLibrary.DataNodes;
+using System.IO;
 
 namespace Tester
 {
@@ -235,6 +236,44 @@ namespace Tester
             }
 
             Assert.True(found == "ClassLibrary.DataNodes.WindSpeed");
+        }
+    }
+
+    public class MeasurementSystemTests
+    {
+        string projectDir = Directory.GetParent(AppContext.BaseDirectory).Parent.Parent.Parent.FullName;
+        //I've tried using a less aggressive solution, but those did not suffice
+
+        [Fact(DisplayName = "01. Can Read")]
+        public void Test1()
+        {
+            string filePath = Path.Combine(projectDir, "TestFiles", "sample_measurements_1.json");
+            Assert.True(File.Exists(filePath), $"Test file not found: {filePath}");
+
+            MeasurementSystem testSystem = new MeasurementSystem();
+            testSystem.ImportFromFile(filePath);
+            Assert.Equal(4, testSystem.DataNodesByType.Count);
+        }
+
+        [Fact(DisplayName = "02. Perfectly Formated File was read correctly")]
+        public void Test2()
+        {
+            string filePath = Path.Combine(projectDir, "TestFiles", "sample_measurements_1.json");
+
+            MeasurementSystem testSystem = new MeasurementSystem();
+            testSystem.ImportFromFile(filePath);
+
+
+            var minTemp = testSystem.DataNodesByType[typeof(TemperatureNode)]
+                             .MinBy(t => t.Value);
+            var maxHum = testSystem.DataNodesByType[typeof(Humidity)]
+                             .MaxBy(t => t.Value);
+            var sensorTest = testSystem.DataNodesByType[typeof(Pressure)].First(t => Math.Abs(t.GetIn("atm") - 1.01) < 1e-6);
+
+            Assert.Equal(-2.5, minTemp.GetIn("°C"));
+            Assert.Equal(82.0, maxHum.GetIn("%"));
+            Assert.Equal("baro_sec", sensorTest.Sensor);
+            Assert.Equal(3, testSystem.DataNodesByType[typeof(WindSpeed)].Count);
         }
     }
 }

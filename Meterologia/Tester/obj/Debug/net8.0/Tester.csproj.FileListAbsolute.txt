@@ -105,3 +105,4 @@ G:\Dani_(idéglenes)\Suli\BME\3. Félév\SofTech\Hazi 2\Meterologia\Tester\bin\D
 G:\Dani_(idéglenes)\Suli\BME\3. Félév\SofTech\Hazi 2\Meterologia\Tester\bin\Debug\net8.0\Program.dll
 G:\Dani_(idéglenes)\Suli\BME\3. Félév\SofTech\Hazi 2\Meterologia\Tester\bin\Debug\net8.0\ClassLibrary.pdb
 G:\Dani_(idéglenes)\Suli\BME\3. Félév\SofTech\Hazi 2\Meterologia\Tester\bin\Debug\net8.0\Program.pdb
+G:\Dani_(idéglenes)\Suli\BME\3. Félév\SofTech\Hazi 2\Meterologia\Tester\obj\Debug\net8.0\Tester.sourcelink.json

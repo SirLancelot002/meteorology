@@ -69,5 +69,12 @@ namespace ClassLibrary.DataNodes
 
             return converters.ContainsKey(NormalizeUnit(unit));
         }
+
+        public override string ToString()
+        {
+            string nodeType = GetType().Name;
+
+            return $"{nodeType}\t\"Timestamp\" : {Date:O}\t\"Value\" : {Value}\t\"Source\" : {Source}\t\"Sensor\" : {Sensor}";
+        }
     }
 }

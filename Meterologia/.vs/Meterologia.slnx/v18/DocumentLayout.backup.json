@@ -7,28 +7,20 @@
       "RelativeMoniker": "D:0:0:{4572E7DB-007C-4C90-AC53-E329B474990D}|Tester\\Tester.csproj|solutionrelative:tester\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{01F421BE-99E8-42B4-4C5D-BE4D1CAF051C}|ClassLibrary\\ClassLibrary.csproj|g:\\dani_(id\u00E9glenes)\\suli\\bme\\3. f\u00E9l\u00E9v\\softech\\hazi 2\\meterologia\\classlibrary\\windspeed.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{01F421BE-99E8-42B4-4C5D-BE4D1CAF051C}|ClassLibrary\\ClassLibrary.csproj|solutionrelative:classlibrary\\windspeed.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{01F421BE-99E8-42B4-4C5D-BE4D1CAF051C}|ClassLibrary\\ClassLibrary.csproj|g:\\dani_(id\u00E9glenes)\\suli\\bme\\3. f\u00E9l\u00E9v\\softech\\hazi 2\\meterologia\\classlibrary\\datanodes\\datanodefactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01F421BE-99E8-42B4-4C5D-BE4D1CAF051C}|ClassLibrary\\ClassLibrary.csproj|solutionrelative:classlibrary\\datanodes\\datanodefactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{01F421BE-99E8-42B4-4C5D-BE4D1CAF051C}|ClassLibrary\\ClassLibrary.csproj|g:\\dani_(id\u00E9glenes)\\suli\\bme\\3. f\u00E9l\u00E9v\\softech\\hazi 2\\meterologia\\classlibrary\\humidity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{01F421BE-99E8-42B4-4C5D-BE4D1CAF051C}|ClassLibrary\\ClassLibrary.csproj|solutionrelative:classlibrary\\humidity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{01F421BE-99E8-42B4-4C5D-BE4D1CAF051C}|ClassLibrary\\ClassLibrary.csproj|g:\\dani_(id\u00E9glenes)\\suli\\bme\\3. f\u00E9l\u00E9v\\softech\\hazi 2\\meterologia\\classlibrary\\pressure.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{01F421BE-99E8-42B4-4C5D-BE4D1CAF051C}|ClassLibrary\\ClassLibrary.csproj|solutionrelative:classlibrary\\pressure.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{01F421BE-99E8-42B4-4C5D-BE4D1CAF051C}|ClassLibrary\\ClassLibrary.csproj|g:\\dani_(id\u00E9glenes)\\suli\\bme\\3. f\u00E9l\u00E9v\\softech\\hazi 2\\meterologia\\classlibrary\\temperaturenode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{01F421BE-99E8-42B4-4C5D-BE4D1CAF051C}|ClassLibrary\\ClassLibrary.csproj|solutionrelative:classlibrary\\temperaturenode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{01F421BE-99E8-42B4-4C5D-BE4D1CAF051C}|ClassLibrary\\ClassLibrary.csproj|g:\\dani_(id\u00E9glenes)\\suli\\bme\\3. f\u00E9l\u00E9v\\softech\\hazi 2\\meterologia\\classlibrary\\datanode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{01F421BE-99E8-42B4-4C5D-BE4D1CAF051C}|ClassLibrary\\ClassLibrary.csproj|solutionrelative:classlibrary\\datanode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{01F421BE-99E8-42B4-4C5D-BE4D1CAF051C}|ClassLibrary\\ClassLibrary.csproj|g:\\dani_(id\u00E9glenes)\\suli\\bme\\3. f\u00E9l\u00E9v\\softech\\hazi 2\\meterologia\\classlibrary\\measurementsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01F421BE-99E8-42B4-4C5D-BE4D1CAF051C}|ClassLibrary\\ClassLibrary.csproj|solutionrelative:classlibrary\\measurementsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6447BE5C-3B31-F5D0-7FF2-9C33AC033551}|Systems\\Program.csproj|g:\\dani_(id\u00E9glenes)\\suli\\bme\\3. f\u00E9l\u00E9v\\softech\\hazi 2\\meterologia\\systems\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6447BE5C-3B31-F5D0-7FF2-9C33AC033551}|Systems\\Program.csproj|solutionrelative:systems\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01F421BE-99E8-42B4-4C5D-BE4D1CAF051C}|ClassLibrary\\ClassLibrary.csproj|g:\\dani_(id\u00E9glenes)\\suli\\bme\\3. f\u00E9l\u00E9v\\softech\\hazi 2\\meterologia\\classlibrary\\datanodes\\datanode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01F421BE-99E8-42B4-4C5D-BE4D1CAF051C}|ClassLibrary\\ClassLibrary.csproj|solutionrelative:classlibrary\\datanodes\\datanode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,8 +30,38 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DataNodeFactory.cs",
+              "DocumentMoniker": "G:\\Dani_(id\u00E9glenes)\\Suli\\BME\\3. F\u00E9l\u00E9v\\SofTech\\Hazi 2\\Meterologia\\ClassLibrary\\DataNodes\\DataNodeFactory.cs",
+              "RelativeDocumentMoniker": "ClassLibrary\\DataNodes\\DataNodeFactory.cs",
+              "ToolTip": "G:\\Dani_(id\u00E9glenes)\\Suli\\BME\\3. F\u00E9l\u00E9v\\SofTech\\Hazi 2\\Meterologia\\ClassLibrary\\DataNodes\\DataNodeFactory.cs",
+              "RelativeToolTip": "ClassLibrary\\DataNodes\\DataNodeFactory.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABMAAABbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T14:05:54.816Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MeasurementSystem.cs",
+              "DocumentMoniker": "G:\\Dani_(id\u00E9glenes)\\Suli\\BME\\3. F\u00E9l\u00E9v\\SofTech\\Hazi 2\\Meterologia\\ClassLibrary\\MeasurementSystem.cs",
+              "RelativeDocumentMoniker": "ClassLibrary\\MeasurementSystem.cs",
+              "ToolTip": "G:\\Dani_(id\u00E9glenes)\\Suli\\BME\\3. F\u00E9l\u00E9v\\SofTech\\Hazi 2\\Meterologia\\ClassLibrary\\MeasurementSystem.cs",
+              "RelativeToolTip": "ClassLibrary\\MeasurementSystem.cs",
+              "ViewState": "AgIAAFEAAAAAAAAAAADwv14AAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-29T17:40:04.658Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -48,89 +70,33 @@
               "RelativeDocumentMoniker": "Tester\\UnitTest1.cs",
               "ToolTip": "G:\\Dani_(id\u00E9glenes)\\Suli\\BME\\3. F\u00E9l\u00E9v\\SofTech\\Hazi 2\\Meterologia\\Tester\\UnitTest1.cs",
               "RelativeToolTip": "Tester\\UnitTest1.cs",
-              "ViewState": "AgIAALcAAAAAAAAAAAAqwMYAAAAzAAAAAAAAAA==",
+              "ViewState": "AgIAAPkAAAAAAAAAAAAiwA4BAAB9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-29T15:36:08.648Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "WindSpeed.cs",
-              "DocumentMoniker": "G:\\Dani_(id\u00E9glenes)\\Suli\\BME\\3. F\u00E9l\u00E9v\\SofTech\\Hazi 2\\Meterologia\\ClassLibrary\\WindSpeed.cs",
-              "RelativeDocumentMoniker": "ClassLibrary\\WindSpeed.cs",
-              "ToolTip": "G:\\Dani_(id\u00E9glenes)\\Suli\\BME\\3. F\u00E9l\u00E9v\\SofTech\\Hazi 2\\Meterologia\\ClassLibrary\\WindSpeed.cs",
-              "RelativeToolTip": "ClassLibrary\\WindSpeed.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABMAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T16:30:03.665Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Humidity.cs",
-              "DocumentMoniker": "G:\\Dani_(id\u00E9glenes)\\Suli\\BME\\3. F\u00E9l\u00E9v\\SofTech\\Hazi 2\\Meterologia\\ClassLibrary\\Humidity.cs",
-              "RelativeDocumentMoniker": "ClassLibrary\\Humidity.cs",
-              "ToolTip": "G:\\Dani_(id\u00E9glenes)\\Suli\\BME\\3. F\u00E9l\u00E9v\\SofTech\\Hazi 2\\Meterologia\\ClassLibrary\\Humidity.cs",
-              "RelativeToolTip": "ClassLibrary\\Humidity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T16:18:21.802Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Pressure.cs",
-              "DocumentMoniker": "G:\\Dani_(id\u00E9glenes)\\Suli\\BME\\3. F\u00E9l\u00E9v\\SofTech\\Hazi 2\\Meterologia\\ClassLibrary\\Pressure.cs",
-              "RelativeDocumentMoniker": "ClassLibrary\\Pressure.cs",
-              "ToolTip": "G:\\Dani_(id\u00E9glenes)\\Suli\\BME\\3. F\u00E9l\u00E9v\\SofTech\\Hazi 2\\Meterologia\\ClassLibrary\\Pressure.cs",
-              "RelativeToolTip": "ClassLibrary\\Pressure.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T13:35:47.578Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "TemperatureNode.cs",
-              "DocumentMoniker": "G:\\Dani_(id\u00E9glenes)\\Suli\\BME\\3. F\u00E9l\u00E9v\\SofTech\\Hazi 2\\Meterologia\\ClassLibrary\\TemperatureNode.cs",
-              "RelativeDocumentMoniker": "ClassLibrary\\TemperatureNode.cs",
-              "ToolTip": "G:\\Dani_(id\u00E9glenes)\\Suli\\BME\\3. F\u00E9l\u00E9v\\SofTech\\Hazi 2\\Meterologia\\ClassLibrary\\TemperatureNode.cs",
-              "RelativeToolTip": "ClassLibrary\\TemperatureNode.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAABnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T13:25:03.833Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "DataNode.cs",
-              "DocumentMoniker": "G:\\Dani_(id\u00E9glenes)\\Suli\\BME\\3. F\u00E9l\u00E9v\\SofTech\\Hazi 2\\Meterologia\\ClassLibrary\\DataNode.cs",
-              "RelativeDocumentMoniker": "ClassLibrary\\DataNode.cs",
-              "ToolTip": "G:\\Dani_(id\u00E9glenes)\\Suli\\BME\\3. F\u00E9l\u00E9v\\SofTech\\Hazi 2\\Meterologia\\ClassLibrary\\DataNode.cs",
-              "RelativeToolTip": "ClassLibrary\\DataNode.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwCwAAAAJAAAAAAAAAA==",
+              "DocumentMoniker": "G:\\Dani_(id\u00E9glenes)\\Suli\\BME\\3. F\u00E9l\u00E9v\\SofTech\\Hazi 2\\Meterologia\\ClassLibrary\\DataNodes\\DataNode.cs",
+              "RelativeDocumentMoniker": "ClassLibrary\\DataNodes\\DataNode.cs",
+              "ToolTip": "G:\\Dani_(id\u00E9glenes)\\Suli\\BME\\3. F\u00E9l\u00E9v\\SofTech\\Hazi 2\\Meterologia\\ClassLibrary\\DataNodes\\DataNode.cs",
+              "RelativeToolTip": "ClassLibrary\\DataNodes\\DataNode.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAswEkAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-29T14:00:24.48Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "G:\\Dani_(id\u00E9glenes)\\Suli\\BME\\3. F\u00E9l\u00E9v\\SofTech\\Hazi 2\\Meterologia\\Systems\\Program.cs",
               "RelativeDocumentMoniker": "Systems\\Program.cs",
               "ToolTip": "G:\\Dani_(id\u00E9glenes)\\Suli\\BME\\3. F\u00E9l\u00E9v\\SofTech\\Hazi 2\\Meterologia\\Systems\\Program.cs",
               "RelativeToolTip": "Systems\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAPAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-29T12:10:59.314Z",
               "EditorCaption": ""

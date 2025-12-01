@@ -63,7 +63,73 @@ namespace ClassLibrary
         }
         public void Clear() => DataNodesByType.Clear();
 
-        public void ImportFromFile(string path)
+        public void ImportFromFile(string path) {
+            if (!File.Exists(path)) {
+                Console.WriteLine("File could not be found");
+                return;
+            }
+
+            string content;
+            try { content = File.ReadAllText(path); }
+            catch {
+                Console.WriteLine("File could not be read for some reason");
+                return;
+            }
+
+            int successes = 0;
+            int fails = 0;
+            string[] rows = content.Trim('[', ']').Trim().Split('{');
+            foreach (string row in rows)
+            {
+                DateTime timestamp = DateTime.MinValue;
+                double value = double.MinValue;
+                string? unit = null;
+                string? sensor = null;
+
+                string[] dataPairs = row.Split(',');
+                foreach (string dataPair in dataPairs)
+                {
+                    string[] label_Data = dataPair.Split(":",2);
+                    if (label_Data.Length < 2) { continue; }
+                    string label = label_Data[0].Trim().Trim('\"');
+                    string data = label_Data[1].Trim().Trim('\"');
+                    data = data.TrimEnd(' ', '"', '}', ']', '\n', '\r', '\t');
+                    switch (label.ToLower())
+                    {
+                        case "timestamp":
+                            DateTime.TryParse(data, out timestamp);
+                            break;
+                        case "value":
+                            double.TryParse(data, out value);
+                            break;
+                        case "unit":
+                            unit = data;
+                            break;
+                        case "sensor":
+                            sensor = data;
+                            break;
+                    }
+                }
+                if (timestamp > DateTime.MinValue && unit != null && value > double.MinValue)
+                {
+                    RawMeasurement raw = new RawMeasurement();
+                    raw.timestamp = timestamp;
+                    raw.unit = unit;
+                    raw.sensor = sensor;
+                    raw.value = value;
+                    raw.source = SourceType.IMPORTED;
+
+                    var node = DataNodeFactory.TryCreate(raw);
+                    if (node != null) { AddNode(node); successes++; }
+                    else { fails++;}
+                }
+                else { fails++;}
+            }
+
+            Console.WriteLine($"Reading the file: {path}\nResulted in {successes} successes and {fails} failures");
+        }
+
+        public void ImportFromFileOLD(string path)
         {
             if (string.IsNullOrWhiteSpace(path)) {
                 Console.WriteLine("Invalid file name/path");

@@ -9,3 +9,4 @@ G:\Dani_(idéglenes)\Suli\BME\3. Félév\SofTech\Hazi 2\Meterologia\ClassLibrary
 G:\Dani_(idéglenes)\Suli\BME\3. Félév\SofTech\Hazi 2\Meterologia\ClassLibrary\obj\Debug\net8.0\refint\ClassLibrary.dll
 G:\Dani_(idéglenes)\Suli\BME\3. Félév\SofTech\Hazi 2\Meterologia\ClassLibrary\obj\Debug\net8.0\ClassLibrary.pdb
 G:\Dani_(idéglenes)\Suli\BME\3. Félév\SofTech\Hazi 2\Meterologia\ClassLibrary\obj\Debug\net8.0\ref\ClassLibrary.dll
+G:\Dani_(idéglenes)\Suli\BME\3. Félév\SofTech\Hazi 2\Meterologia\ClassLibrary\obj\Debug\net8.0\ClassLibrary.sourcelink.json
