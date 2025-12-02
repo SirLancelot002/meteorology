@@ -244,6 +244,7 @@ namespace Tester
         string projectDir = Directory.GetParent(AppContext.BaseDirectory).Parent.Parent.Parent.FullName;
         //I've tried using a less aggressive solution, but those did not suffice
 
+        #region BasicFileReading
         [Fact(DisplayName = "01. Can Read")]
         public void Test1()
         {
@@ -275,5 +276,58 @@ namespace Tester
             Assert.Equal("baro_sec", sensorTest.Sensor);
             Assert.Equal(3, testSystem.DataNodesByType[typeof(WindSpeed)].Count);
         }
+
+        [Fact(DisplayName = "03. Perfectly Formated Bigger File was read correctly")]
+        public void Test3()
+        {
+            string filePath = Path.Combine(projectDir, "TestFiles", "sample_measurements_2.json");
+
+            MeasurementSystem testSystem = new MeasurementSystem();
+            testSystem.ImportFromFile(filePath);
+
+            bool success = true;
+            foreach (var nodelist in testSystem.DataNodesByType) {
+                success = success && nodelist.Value.Count == 5;
+            }
+
+            Assert.True(success, "");
+        }
+
+        [Fact(DisplayName = "04. Test on non-one-line-one-node File")]
+        public void Test4()
+        {
+            string filePath = Path.Combine(projectDir, "TestFiles", "sample_measurements_3.json");
+
+            MeasurementSystem testSystem = new MeasurementSystem();
+            testSystem.ImportFromFile(filePath);
+
+            bool success = true;
+            foreach (var nodelist in testSystem.DataNodesByType)
+            {
+                success = success && nodelist.Value.Count == 5;
+            }
+
+            Assert.True(success, "Wrong amount of nodes were stored");
+        }
+
+        [Fact(DisplayName = "05. Bad file read correctly")]
+        public void Test5()
+        {
+            string filePath = Path.Combine(projectDir, "TestFiles", "sample_measurements_4.json");
+
+            MeasurementSystem testSystem = new MeasurementSystem();
+            testSystem.ImportFromFile(filePath);
+
+            int countOfNodes = 0;
+            foreach (var nodeList in testSystem.DataNodesByType)
+            {
+                foreach (var node in nodeList.Value)
+                {
+                    countOfNodes++;
+                }
+            }
+            Assert.Equal(1, countOfNodes);
+        }
+        #endregion
     }
 }

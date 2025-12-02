@@ -85,6 +85,7 @@ namespace ClassLibrary
                 double value = double.MinValue;
                 string? unit = null;
                 string? sensor = null;
+                bool valueRead = false;
 
                 string[] dataPairs = row.Split(',');
                 foreach (string dataPair in dataPairs)
@@ -100,7 +101,7 @@ namespace ClassLibrary
                             DateTime.TryParse(data, out timestamp);
                             break;
                         case "value":
-                            double.TryParse(data, out value);
+                            valueRead = double.TryParse(data, out value);
                             break;
                         case "unit":
                             unit = data;
@@ -110,7 +111,7 @@ namespace ClassLibrary
                             break;
                     }
                 }
-                if (timestamp > DateTime.MinValue && unit != null && value > double.MinValue)
+                if (timestamp > DateTime.MinValue && unit != null && valueRead)
                 {
                     RawMeasurement raw = new RawMeasurement();
                     raw.timestamp = timestamp;
@@ -127,86 +128,6 @@ namespace ClassLibrary
             }
 
             Console.WriteLine($"Reading the file: {path}\nResulted in {successes} successes and {fails} failures");
-        }
-
-        public void ImportFromFileOLD(string path)
-        {
-            if (string.IsNullOrWhiteSpace(path)) {
-                Console.WriteLine("Invalid file name/path");
-                return;
-            }
-            if (!File.Exists(path)) {
-                Console.WriteLine("File could not be found");
-                return;
-            }
-
-            string content;
-            try {content = File.ReadAllText(path);}
-            catch {
-                Console.WriteLine("File could not be read for some reason");
-                return;
-            }
-
-            var options = new JsonSerializerOptions {PropertyNameCaseInsensitive = true};
-            List<RawMeasurement>? rows = null;
-
-            // Try parse as full JSON array first
-            try {rows = JsonSerializer.Deserialize<List<RawMeasurement>>(content, options);}
-            catch {rows = null;}
-
-            // If top-level array parse failed, attempt to parse line-by-line
-            if (rows == null) {
-                var candidates = new List<RawMeasurement>();
-                using var sr = new StringReader(content);
-                string? line;
-                while ((line = sr.ReadLine()) != null) {
-                    if (string.IsNullOrWhiteSpace(line)) continue;
-
-                    var trimmed = line.Trim();
-                    if (trimmed.EndsWith(",")) trimmed = trimmed.Substring(0, trimmed.Length - 1);
-
-                    try {
-                        var obj = JsonSerializer.Deserialize<RawMeasurement>(trimmed, options);
-                        if (obj != null) candidates.Add(obj);
-                    }
-                    catch {
-                        // Try to be extra tolerant: if the line contains a JSON object somewhere inside, try to extract
-                        int start = trimmed.IndexOf('{');
-                        int end = trimmed.LastIndexOf('}');
-                        if (start >= 0 && end > start) {
-                            var sub = trimmed.Substring(start, end - start + 1);
-                            try {
-                                var obj2 = JsonSerializer.Deserialize<RawMeasurement>(sub, options);
-                                if (obj2 != null) candidates.Add(obj2);
-                            }
-                            catch {
-                                // give up on this line
-                            }
-                        }
-                    }
-                }
-                if (candidates.Count > 0) rows = candidates;
-            }
-
-            if (rows == null || rows.Count == 0){
-                Console.WriteLine("The File was read, but there was no useful data.");
-                return;
-            }
-
-            // Process each row: try to create a DataNode and add it. Skip bad rows.
-            foreach (var raw in rows) {
-                try {
-                    if (raw.timestamp == default || string.IsNullOrWhiteSpace(raw.unit)) continue;
-
-                    var node = DataNodeFactory.TryCreate(raw);
-                    if (node != null) {
-                        AddNode(node);
-                    }
-                }
-                catch {
-                    // skip this row on any unexpected error
-                }
-            }
         }
     }
 }
