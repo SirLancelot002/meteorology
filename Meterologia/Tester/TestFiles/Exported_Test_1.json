@@ -1,0 +1,152 @@
+[
+  {
+    "timestamp": "2025-12-02T18:24:07+01:00",
+    "value": 199.93,
+    "unit": "m/s",
+    "sensor": "Generated_0"
+  },
+  {
+    "timestamp": "2025-12-02T19:24:07+01:00",
+    "value": 202.63,
+    "unit": "m/s",
+    "sensor": "Generated_1"
+  },
+  {
+    "timestamp": "2025-12-02T20:24:07+01:00",
+    "value": 193.20,
+    "unit": "m/s",
+    "sensor": "Generated_2"
+  },
+  {
+    "timestamp": "2025-12-02T21:24:07+01:00",
+    "value": 198.18,
+    "unit": "m/s",
+    "sensor": "Generated_3"
+  },
+  {
+    "timestamp": "2025-12-02T22:24:07+01:00",
+    "value": 218.53,
+    "unit": "m/s",
+    "sensor": "Generated_4"
+  },
+  {
+    "timestamp": "2025-12-02T23:24:07+01:00",
+    "value": 216.08,
+    "unit": "m/s",
+    "sensor": "Generated_5"
+  },
+  {
+    "timestamp": "2025-12-03T00:24:07+01:00",
+    "value": 223.57,
+    "unit": "m/s",
+    "sensor": "Generated_6"
+  },
+  {
+    "timestamp": "2025-12-03T01:24:07+01:00",
+    "value": 230.46,
+    "unit": "m/s",
+    "sensor": "Generated_7"
+  },
+  {
+    "timestamp": "2025-12-03T02:24:07+01:00",
+    "value": 210.04,
+    "unit": "m/s",
+    "sensor": "Generated_8"
+  },
+  {
+    "timestamp": "2025-12-03T03:24:07+01:00",
+    "value": 238.74,
+    "unit": "m/s",
+    "sensor": "Generated_9"
+  },
+  {
+    "timestamp": "2025-12-03T04:24:07+01:00",
+    "value": 213.64,
+    "unit": "m/s",
+    "sensor": "Generated_10"
+  },
+  {
+    "timestamp": "2025-12-03T05:24:07+01:00",
+    "value": 212.97,
+    "unit": "m/s",
+    "sensor": "Generated_11"
+  },
+  {
+    "timestamp": "2025-12-03T06:24:07+01:00",
+    "value": 201.37,
+    "unit": "m/s",
+    "sensor": "Generated_12"
+  },
+  {
+    "timestamp": "2025-12-03T07:24:07+01:00",
+    "value": 185.82,
+    "unit": "m/s",
+    "sensor": "Generated_13"
+  }
+  {
+    "timestamp": "2025-12-03T08:24:07+01:00",
+    "value": 182.56,
+    "unit": "m/s",
+    "sensor": "Generated_14"
+  },
+  {
+    "timestamp": "2025-12-03T09:24:07+01:00",
+    "value": 197.16,
+    "unit": "m/s",
+    "sensor": "Generated_15"
+  },
+  {
+    "timestamp": "2025-12-03T10:24:07+01:00",
+    "value": 168.96,
+    "unit": "m/s",
+    "sensor": "Generated_16"
+  }
+  {
+    "timestamp": "2025-12-03T11:24:07+01:00",
+    "value": 174.86,
+    "unit": "m/s",
+    "sensor": "Generated_17"
+  },
+  {
+    "timestamp": "2025-12-03T12:24:07+01:00",
+    "value": 177.16,
+    "unit": "m/s",
+    "sensor": "Generated_18"
+  }
+  {
+    "timestamp": "2025-12-03T13:24:07+01:00",
+    "value": 198.03,
+    "unit": "m/s",
+    "sensor": "Generated_19"
+  },
+  {
+    "timestamp": "2025-12-03T14:24:07+01:00",
+    "value": 225.89,
+    "unit": "m/s",
+    "sensor": "Generated_20"
+  },
+  {
+    "timestamp": "2025-12-03T15:24:07+01:00",
+    "value": 205.41,
+    "unit": "m/s",
+    "sensor": "Generated_21"
+  },
+  {
+    "timestamp": "2025-12-03T16:24:07+01:00",
+    "value": 213.60,
+    "unit": "m/s",
+    "sensor": "Generated_22"
+  },
+  {
+    "timestamp": "2025-12-03T17:24:07+01:00",
+    "value": 209.00,
+    "unit": "m/s",
+    "sensor": "Generated_23"
+  },
+  {
+    "timestamp": "2025-12-03T18:24:07+01:00",
+    "value": 187.42,
+    "unit": "m/s",
+    "sensor": "Generated_24"
+  }
+]

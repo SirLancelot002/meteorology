@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.ConstrainedExecution;
@@ -71,10 +72,16 @@ namespace ClassLibrary.DataNodes
         }
 
         public override string ToString()
-        {
+        {//This function is for debugging
             string nodeType = GetType().Name;
 
             return $"{nodeType}\t\"Timestamp\" : {Date:O}\t\"Value\" : {Value}\t\"Source\" : {Source}\t\"Sensor\" : {Sensor}";
+        }
+
+        public string ToFileLine(string unit)
+        {
+            string sensorPart = Sensor != null ? $", \"sensor\": \"{Sensor}\"" : "";
+            return $"{{ \"timestamp\": \"{Date.ToString("yyyy-MM-ddTHH:mm:ssK")}\", \"value\": {GetIn(unit).ToString("F2", CultureInfo.InvariantCulture)}, \"unit\": \"{unit}\"{sensorPart} }}";
         }
     }
 }

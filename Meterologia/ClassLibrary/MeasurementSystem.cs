@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -11,6 +13,7 @@ namespace ClassLibrary
     public class MeasurementSystem
     {
         public Dictionary<Type, LinkedList<DataNode>> DataNodesByType { get; }
+        private static readonly Random rng = new Random();
 
         public MeasurementSystem() {
             DataNodesByType = new Dictionary<Type, LinkedList<DataNode>>();
@@ -33,14 +36,8 @@ namespace ClassLibrary
         {
             if (list.Count == 0) {list.AddFirst(node); return;} //If the list was just created
 
-            var last = list.Last!;
-            if (node.Date >= last.Value.Date) {list.AddLast(node); return;}
-
-            var first = list.First!;
-            if (node.Date <= first.Value.Date) {list.AddFirst(node); return;}
-
-            var distanceToEnd = (last.Value.Date - node.Date).Ticks; //These are for getting the best way to insert it.
-            var distanceToStart = (node.Date - first.Value.Date).Ticks;//These assume that nodes are about equally distributed in time
+            var distanceToEnd = (list.Last!.Value.Date - node.Date).Ticks; //These are for getting the best way to insert it.
+            var distanceToStart = (node.Date - list.First!.Value.Date).Ticks;//These assume that nodes are about equally distributed in time
 
             //I know a binary-halving strategy would be more effective, but that can't be done on linked list, but we need it for effective insert.
             if (distanceToEnd < distanceToStart) {
@@ -62,6 +59,33 @@ namespace ClassLibrary
             list.AddLast(node);
         }
         public void Clear() => DataNodesByType.Clear();
+
+        public void Generate(double minValue, double maxValue, DateTime start, DateTime end, string unit)
+        {
+            double stepsToEdge = 5; //This is the cycles the code needs to go from the avg value to an edge
+            DateTime time = start;
+
+            double diff = maxValue - minValue;//This segment is to make the random generated values a bit more belivable.
+            double value = (rng.NextDouble() * diff) + minValue;
+            double maxStep = diff / stepsToEdge;//Instead of having a bunch of random values, one random value is always modifed by a random delta
+            int cycle = 0;
+
+            while (time < end) {
+                RawMeasurement raw = new RawMeasurement();
+                raw.value = value;
+                raw.unit = unit;
+                raw.timestamp = time;
+                raw.source = SourceType.GENERATED;
+                raw.sensor = $"Generated_{cycle}";
+                DataNode? node = DataNodeFactory.TryCreate(raw);
+                if (node is not null) AddNode(node);
+
+                cycle++;
+                value += (rng.NextDouble() * 2.0 - 1.0) * maxStep;
+                value = value < minValue ? minValue : (value > maxValue ? maxValue : value);
+                time = time.AddHours(1);
+            }
+        }
 
         public void ImportFromFile(string path) {
             if (!File.Exists(path)) {
@@ -128,6 +152,44 @@ namespace ClassLibrary
             }
 
             Console.WriteLine($"Reading the file: {path}\nResulted in {successes} successes and {fails} failures");
+        }
+
+        public void ExportToFile(string path)
+        {//I know we didn't had to do this, but we did not get large input files to test on, so I need this to make test files
+            using (StreamWriter writer = new StreamWriter(path, false))
+            {
+                writer.WriteLine("[");
+                bool first = true;
+                Random rand = new Random();
+
+                foreach (var kvp in DataNodesByType)
+                {
+                    foreach (var node in kvp.Value)
+                    {
+                        if (!first) writer.WriteLine(",");
+
+                        var t = node.GetType();
+                        var field = t.GetField("_converters", BindingFlags.NonPublic | BindingFlags.Static);
+
+                        string unit = "";
+                        if (field != null)
+                        {
+                            var converters = field.GetValue(null) as System.Collections.Generic.IReadOnlyDictionary<string, (Func<double, double>, Func<double, double>)>;
+                            if (converters != null && converters.Keys.Any())
+                            {
+                                var keys = converters.Keys.ToList();
+                                unit = keys[rand.Next(keys.Count)];
+                            }
+                        }
+
+                        writer.Write("  " + node.ToFileLine(unit));
+                        first = false;
+                    }
+                }
+
+                writer.WriteLine();
+                writer.WriteLine("]");
+            }
         }
     }
 }

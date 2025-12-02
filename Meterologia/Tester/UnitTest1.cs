@@ -328,6 +328,87 @@ namespace Tester
             }
             Assert.Equal(1, countOfNodes);
         }
+
+        [Fact(DisplayName = "06. Huge File read test")]
+        public void Test6()
+        {
+            string filePath = Path.Combine(projectDir, "TestFiles", "Generated_Export_Huge_1.json");
+
+            MeasurementSystem testSystem = new MeasurementSystem();
+            testSystem.ImportFromFile(filePath);
+
+            int countOfNodes = 0;
+            foreach (var nodeList in testSystem.DataNodesByType)
+            {
+                foreach (var node in nodeList.Value)
+                {
+                    countOfNodes++;
+                }
+            }
+            Assert.Equal(2980, countOfNodes);
+        }
+
+        [Fact(DisplayName = "07. Giga File read test (MBs)")]
+        public void Test7()
+        {
+            string filePath = Path.Combine(projectDir, "TestFiles", "Generated_Export_Giga_1.json");
+
+            MeasurementSystem testSystem = new MeasurementSystem();
+            testSystem.ImportFromFile(filePath);
+
+            int countOfNodes = 0;
+            foreach (var nodeList in testSystem.DataNodesByType)
+            {
+                foreach (var node in nodeList.Value)
+                {
+                    countOfNodes++;
+                }
+            }
+            Assert.Equal(35044, countOfNodes);
+        }
+        #endregion
+
+        #region GeneratorTests
+        [Fact(DisplayName = "08. Generator basic test")]
+        public void Test8()
+        {
+            MeasurementSystem testSystem = new MeasurementSystem();
+            testSystem.Generate(1, 50, DateTime.Now, DateTime.Now.AddDays(1), "m/s");
+
+            int count = 0;
+            foreach (var nodeList in testSystem.DataNodesByType)
+            {
+                foreach (var node in nodeList.Value)
+                {
+                    count++;
+                }
+            }
+
+            Assert.Equal(25, testSystem.DataNodesByType[typeof(WindSpeed)].Count);//Check if this was correctly identified as Wind
+            Assert.Equal(25, count); //Check that nothing else was made
+        }
+
+        [Fact(DisplayName = "09. Generator Huge test")]
+        public void Test9()
+        {
+            MeasurementSystem testSystem = new MeasurementSystem();
+            testSystem.Generate(1, 50, DateTime.Now, DateTime.Now.AddYears(1), "m/s");
+            testSystem.Generate(-10, 15, DateTime.Now, DateTime.Now.AddYears(1), "°C");
+            testSystem.Generate(0, 99, DateTime.Now, DateTime.Now.AddYears(1), "%");
+            testSystem.Generate(0.8, 1.2, DateTime.Now, DateTime.Now.AddYears(1), "atm");
+
+            int count = 0;
+            foreach (var nodeList in testSystem.DataNodesByType)
+            {
+                foreach (var node in nodeList.Value)
+                {
+                    count++;
+                }
+            }
+
+            Assert.Equal(35044, count); //Generating ~3.7MBs of Data
+        }
+
         #endregion
     }
 }
