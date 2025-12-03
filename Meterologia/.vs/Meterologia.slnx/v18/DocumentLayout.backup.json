@@ -42,8 +42,7 @@
               "RelativeToolTip": "ClassLibrary\\MeasurementSystem.cs",
               "ViewState": "AgIAAD0AAAAAAAAAAAAiwLQAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T17:40:04.658Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-29T17:40:04.658Z"
             },
             {
               "$type": "Document",
@@ -55,8 +54,7 @@
               "RelativeToolTip": "ClassLibrary\\DataNodes\\DataNode.cs",
               "ViewState": "AgIAAC0AAAAAAAAAAAA7wFMAAAB4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T14:00:24.48Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-29T14:00:24.48Z"
             },
             {
               "$type": "Document",
@@ -64,9 +62,9 @@
               "Title": "UnitTest1.cs",
               "DocumentMoniker": "G:\\Dani_(id\u00E9glenes)\\Suli\\BME\\3. F\u00E9l\u00E9v\\SofTech\\Hazi 2\\Meterologia\\Tester\\UnitTest1.cs",
               "RelativeDocumentMoniker": "Tester\\UnitTest1.cs",
-              "ToolTip": "G:\\Dani_(id\u00E9glenes)\\Suli\\BME\\3. F\u00E9l\u00E9v\\SofTech\\Hazi 2\\Meterologia\\Tester\\UnitTest1.cs",
-              "RelativeToolTip": "Tester\\UnitTest1.cs",
-              "ViewState": "AgIAAIABAAAAAAAAAAAAAJgBAAAeAAAAAAAAAA==",
+              "ToolTip": "G:\\Dani_(id\u00E9glenes)\\Suli\\BME\\3. F\u00E9l\u00E9v\\SofTech\\Hazi 2\\Meterologia\\Tester\\UnitTest1.cs*",
+              "RelativeToolTip": "Tester\\UnitTest1.cs*",
+              "ViewState": "AgIAAPQAAAAAAAAAAAAcwKABAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-29T15:36:08.648Z",
               "EditorCaption": ""
@@ -81,8 +79,7 @@
               "RelativeToolTip": "Systems\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-29T12:10:59.314Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-29T12:10:59.314Z"
             }
           ]
         }

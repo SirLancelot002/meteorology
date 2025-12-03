@@ -14,6 +14,7 @@ namespace ClassLibrary
     {
         public Dictionary<Type, LinkedList<DataNode>> DataNodesByType { get; }
         private static readonly Random rng = new Random();
+        public int count = 0;
 
         public MeasurementSystem() {
             DataNodesByType = new Dictionary<Type, LinkedList<DataNode>>();
@@ -30,6 +31,7 @@ namespace ClassLibrary
             }
 
             InsertInOrder(list, node);
+            count++;
         }
 
         private static void InsertInOrder(LinkedList<DataNode> list, DataNode node)
@@ -58,7 +60,7 @@ namespace ClassLibrary
             // Fallback (shouldn't happen)
             list.AddLast(node);
         }
-        public void Clear() => DataNodesByType.Clear();
+        public void Clear() {DataNodesByType.Clear(); count = 0; }
 
         public void Generate(double minValue, double maxValue, DateTime start, DateTime end, string unit)
         {

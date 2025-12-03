@@ -241,8 +241,8 @@ namespace Tester
 
     public class MeasurementSystemTests
     {
-        string projectDir = Directory.GetParent(AppContext.BaseDirectory).Parent.Parent.Parent.FullName;
-        //I've tried using a less aggressive solution, but those did not suffice
+        public static string projectDir = Directory.GetParent(AppContext.BaseDirectory).Parent.Parent.Parent.FullName;
+        //I've tried using a less aggressive solution, but those did not suffice (For getting the path)
 
         #region BasicFileReading
         [Fact(DisplayName = "01. Can Read")]
@@ -407,6 +407,30 @@ namespace Tester
             }
 
             Assert.Equal(35044, count); //Generating ~3.7MBs of Data
+        }
+
+        [Fact(DisplayName = "10. Generator worked in bounds.")]
+        public void Test10()
+        {
+            MeasurementSystem testSystem = new MeasurementSystem();
+            DateTime now = DateTime.Now;//These have to be set here, otherwise they won't match (generated-tested)
+            DateTime end = DateTime.Now.AddYears(1);
+
+            testSystem.Generate(1, 50, now, end, "m/s");
+            testSystem.Generate(1, 50, now, end, "K");
+            testSystem.Generate(1, 50, now, end, "%");
+            testSystem.Generate(1, 50, now, end, "hPa");
+
+            int count = 0;
+            foreach (var nodeList in testSystem.DataNodesByType)
+            {
+                foreach (var node in nodeList.Value)
+                {
+                    if (((node.Value >= 1) && (node.Value <= 50)) && ((node.Date >= now) && (node.Date <= end))) count++;
+                }
+            }
+
+            Assert.Equal(35044, count);
         }
 
         #endregion
