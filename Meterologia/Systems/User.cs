@@ -1,11 +1,14 @@
 ﻿using ClassLibrary;
 using ClassLibrary.DataNodes;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
+using System.Runtime.Intrinsics.X86;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
@@ -17,14 +20,20 @@ namespace Program
     {
         public MeasurementSystem mySystem;
         protected List<Action> Commands = new List<Action>();
-        protected Dictionary<Type, string> BaseUnits = new Dictionary<Type, string>();
+        public Dictionary<Type, string> BaseUnits = new Dictionary<Type, string>();
+
+        private void InitCommands()
+        {
+            Commands.Add(LoadData);
+            Commands.Add(ExportData);
+            Commands.Add(ShowData);
+            Commands.Add(Analyse);
+        }//Helper function to be called in the Constructors.
 
         public User(MeasurementSystem mySystem)
         {
             this.mySystem = mySystem;
-            Commands.Add(loadData);
-            Commands.Add(exportData);
-            Commands.Add(show);
+            InitCommands();
 
             var subTypes = typeof(DataNode).Assembly.GetTypes()
                     .Where(t => t.IsClass && !t.IsAbstract && t.IsSubclassOf(typeof(DataNode))).ToList();
@@ -49,29 +58,45 @@ namespace Program
         {
             this.mySystem = mySystem;
             BaseUnits = baseUnits;
-            Commands.Add(loadData);
-            Commands.Add(exportData);
-            Commands.Add(show);
-
+            InitCommands();
         }
 
-        public User(Admin myAdmin)
+        public User(User myAdmin)
         {
             this.mySystem = myAdmin.mySystem;
-            Commands.Add(loadData);
-            Commands.Add(exportData);
-            Commands.Add(show);
-            Commands.Add(analyse);
+            InitCommands();
 
             BaseUnits = myAdmin.BaseUnits;
         }
 
-        public bool choose()
+        public int choose()
         {
-            return false;
+            int choice = int.MinValue;
+
+            do
+            {
+                Console.WriteLine("\nChoose an action (write it's index:)\n\t1\tExit\n\t2\tLog in/out Admin");
+                int i = 3;
+                foreach (var command in Commands)
+                {
+                    Console.WriteLine($"\t{i}\t{command.Method.Name}");
+                    i++;
+                }
+                int.TryParse(Console.ReadLine().Trim(), out choice);
+            } while (!(choice >= 1 && choice <= (Commands.Count+2)));
+
+            if (choice == 1)
+            {
+                return 0;
+            }
+            else if (choice == 2) return 1;
+            else {
+                Commands[choice - 3]();
+                return int.MinValue;
+            }
         }
 
-        protected void analyse()
+        protected void Analyse()
         {
             string answer1 = "";
 
@@ -88,9 +113,53 @@ namespace Program
                 Console.WriteLine("\nEnter the type of analysis you want (min/max/avg/count)?");
                 answer2 = Console.ReadLine().ToLower().Trim();
             } while (!(answer2 == "min" || answer2 == "max" || answer2 == "avg" || answer2 == "count"));
+
+            Dictionary<string, Func<IEnumerable<double>, double>> analTypes = new()
+            {
+                ["min"] = seq => seq.Min(),
+                ["max"] = seq => seq.Max(),
+                ["avg"] = seq => seq.Average(),
+                ["count"] = seq => seq.Count()
+            };
+
+            if (answer1 == "overall") {
+                foreach (var Llist in mySystem.DataNodesByType){
+                    Console.WriteLine($"\n{Llist.Key}");
+                    var numbers = Llist.Value.Select(node => node.GetIn(BaseUnits[Llist.Key]));
+                    var result = analTypes[answer2](numbers);
+                    var ourUnit = answer2 != "count" ? BaseUnits[Llist.Key] : "";
+                    Console.WriteLine($"{answer2}: {result.ToString("F2", CultureInfo.InvariantCulture)} {ourUnit}");
+                }
+            }
+            else {
+                foreach (var Llist in mySystem.DataNodesByType)
+                {
+                    int width = Console.WindowWidth;
+                    int height = Console.WindowHeight; //This is inside the loop, bacause the user can change the window size while we are still using this loop
+                    Console.WriteLine($"\n{Llist.Key}");
+
+                    var groups = Llist.Value.GroupBy(node => node.Date.Date);
+                    int cycle = 2;
+                    var ourUnit = answer2 != "count" ? BaseUnits[Llist.Key] : "";
+
+                    foreach (var g in groups)
+                    {
+                        if (cycle > height - 2) {
+                            Console.WriteLine("================================================");
+                            Console.ReadLine();
+                            cycle = 0;
+                        }
+                        cycle++;
+                        var numbers = g.Select(node => node.GetIn(BaseUnits[Llist.Key]));
+                        var result = analTypes[answer2](numbers);
+                        Console.WriteLine($"{g.Key:yyyy-MM-dd} {answer2}: {result.ToString("F2", CultureInfo.InvariantCulture)} {ourUnit}");
+                    }
+                    Console.ReadLine();
+                }
+            }
         }
 
-        protected void show()
+        protected void ShowData()
         {
             string answer1 = "";
 
@@ -112,7 +181,7 @@ namespace Program
                 int index = 1;
                 Console.WriteLine("\nChoose which type you wanna see");
                 foreach (var subType in subTypes) {
-                    Console.WriteLine($"{index}\t{subType}");
+                    Console.WriteLine($"{index}\t{subType.Name}");
                     index++;
                 }
                 do
@@ -228,38 +297,45 @@ namespace Program
                         Console.ReadLine();
                         count = 0;
                     }
-                    count++;
                     string unit = BaseUnits[node.GetType()];
                     double value = node.GetIn(unit);
                     if (minDateFilter <= node.Date && maxDateFilter >= node.Date && minFilter <= value && maxFilter >= value)
-                        Console.WriteLine($"{node.Date}\t{value} {unit}\t{node.Source}\t{node.Sensor}");
+                    {
+                        Console.WriteLine($"{node.Date}\t{value.ToString("F2", CultureInfo.InvariantCulture)} {unit}\t{node.Source}\t{node.Sensor}");
+                        count++;
+                    }
                 }
+                Console.ReadLine();
 
             }
         }
 
         #region FillingMySystem
-        protected void loadData()
+        public void LoadData()
         {
-            List<int> viableAnsers = new List<int>() {1,2};
-            int answer = -1;
-
             do
             {
-                Console.WriteLine("\nSellect the loading method.\n\tWrite 1 for Importing\n\tWrite 2 for Generating");
-                int.TryParse(Console.ReadLine().Trim(), out answer);
-            } while (!viableAnsers.Contains(answer));
+                List<int> viableAnsers = new List<int>() { 1, 2 };
+                int answer = -1;
 
-            switch (answer)
-            {
-                case 1:
-                    importData();
-                    break;
-                case 2:
-                    generateData();
-                    break;
+                do
+                {
+                    Console.WriteLine("\nSellect the loading method.\n\tWrite 1 for Importing\n\tWrite 2 for Generating");
+                    int.TryParse(Console.ReadLine().Trim(), out answer);
+                } while (!viableAnsers.Contains(answer));
+
+                switch (answer)
+                {
+                    case 1:
+                        importData();
+                        break;
+                    case 2:
+                        generateData();
+                        break;
+                }
+                if (mySystem.count < 1) Console.WriteLine("No Data was loaded into the system");
             }
-
+            while (mySystem.count < 1);
         }
 
         private void importData()
@@ -288,38 +364,38 @@ namespace Program
             {
                 Console.WriteLine("\nEnter the the unit to generate values in (This is gonna determin the type of date, like pressure or humidity):");
                 unit = Console.ReadLine().Trim();
-            } while (unit != null);
+            } while (unit == null);
 
             do
             {
                 Console.WriteLine("\nEnter the minimum Value to generate");
                 double.TryParse(Console.ReadLine().Trim(), out min);
-            } while (min < double.MaxValue);
+            } while (!(min < double.MaxValue));
 
             do
             {
                 Console.WriteLine("\nEnter the maximum Value to generate");
                 double.TryParse(Console.ReadLine().Trim(), out max);
-            } while (max > double.MinValue);
+            } while (!(max > double.MinValue));
 
             do
             {
                 Console.WriteLine("\nEnter the starting date to generate");
                 DateTime.TryParse(Console.ReadLine().Trim(), out start);
-            } while (start < DateTime.MaxValue);
+            } while (!(start < DateTime.MaxValue));
 
             do
             {
                 Console.WriteLine("\nEnter the end date to generate");
                 DateTime.TryParse(Console.ReadLine().Trim(), out end);
-            } while (end > DateTime.MinValue);
+            } while (!(end > DateTime.MinValue));
 
             mySystem.Generate(min, max, start, end, unit);
             Console.WriteLine($"\n\tThere were {mySystem.count - startOutCount} nodes generated\n");
         }
         #endregion
 
-        private void exportData()
+        private void ExportData()
         {
             string path = "";
 
@@ -327,7 +403,7 @@ namespace Program
             {
                 Console.WriteLine("\nEnter a valid path to Export the file");
                 path = Console.ReadLine().Trim();
-            } while (!File.Exists(path));
+            } while (path == "");
             mySystem.ExportToFile(path);
         }
     }
